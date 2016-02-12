@@ -1,0 +1,63 @@
+{%- macro render_navbar_countries(country, countries, category, navbar, lang) %}
+        <!-- COUNTRY LIST -->
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">{{ countries[country][lang] }} - {{ navbar[category][lang] }}</a>
+          <ul class="dropdown">
+            <li><label>Available Feeds</label></li>
+  {%- for country in countries|sort %}
+    {%- if countries[country].status == 'published' %}
+            <li class="lang-{{ lang }}"><a href="/{{ lang }}/{{ country }}/{{ category }}/">{{ countries[country][lang] }}</a></li>
+    {%- endif %}
+  {%- endfor %}
+            <li><label>Coming soon</label></li>
+  {%- for country in countries|sort %}
+    {%- if countries[country].status != 'published' %}
+            <li class="lang-{{ lang }}"><a href="/{{ lang }}/{{ country }}/{{ category }}/">{{ countries[country][lang] }}</a></li>
+    {%- endif %}
+  {%- endfor %}
+          </ul>
+        </li>
+{%- endmacro %}
+
+{%- macro render_navbar_categories(country, current_category, navbar, navbar_order, lang, hide='') %}
+  {#- reverse order of Arabic topbar #}
+  {%- if lang == 'ar' %}
+    {%- set navbar_order = navbar_order|reverse %}
+  {%- endif %}
+  {%- for category in navbar_order %}
+        <li class="divider"></li>
+    {%- if navbar[category].sub %}
+        <li class="has-dropdown">
+        <a href="/{{ lang }}/{{ country }}/{{ navbar[category]['en'] }}/">{{ navbar[category][lang] }}</a>
+          <ul class="dropdown">
+      {%- for subcat in navbar[category].sub %}
+            <li><a href="/{{ lang }}/{{ country }}/{{ subcat }}/">{{ subcat|capitalize }}</a></li>
+      {%- endfor %}
+          </ul>
+        </li>
+    {%- else %}
+      {%- if category == current_category %}
+        <li class="active {{ hide }}"><a href="/{{ lang }}/{{ country }}/{{ category }}/">{{ navbar[category][lang] }}</a></li>
+      {%- else %}
+        <li class="{{ hide }}"><a href="/{{ lang }}/{{ country }}/{{ category }}/">{{ navbar[category][lang] }}</a></li>
+      {%- endif %}
+    {%- endif %}
+  {%- endfor %}
+{%- endmacro %}
+
+{%- macro render_navbar_languageswitch(langset, language, country, category) %}
+      <!-- switch language button start -->
+        <li class="has-dropdown">
+          <a href="#">{{ langset[language].button }}</a>
+          <ul class="dropdown">
+        {%- for lang in langset %}
+          {%- if lang != language %}
+            <li class="lang-{{ lang }}"><a href="/{{ lang }}/{{ country }}/{{ category }}/">{{ langset[lang].name }}</a></li>
+          {%- endif %}
+        {%- endfor %}
+          </ul>
+        </li>
+        <li class="divider"></li>
+      <!-- switch language button end -->
+{%- endmacro %}

@@ -1,0 +1,10 @@
+py/
+*.pyc
+*.swp
+*.log
+website/static/.sass-cache/
+spiders/config/test_urls
+website/static/icons/.sass-cache/
+.rvmrc
+run/
+website/config/doonia.conf

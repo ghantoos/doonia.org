@@ -1,0 +1,78 @@
+{%- import 'render_articles.html' as ra %}
+{%- import 'render_articles_mobile.html' as ra_mob %}
+{%- import 'render_navbar.html' as nav %}
+
+{#- load base html page #}
+{%- extends "base.html" %}
+
+{#- defines the columns of the page #}
+{%- block newsfeed %}
+  <div class="container">
+  {#- case country is to be published #}
+  {%- if countries[country].status == 'published' %}
+    <!-- MOBILE: menu button start -->
+    <header id="header" class="row">
+        <p class="show-for-small">
+          <a class='sidebar-button button' id="sidebarButton" href="#sidebar" >Menu</a>
+        </p>
+      </div>
+    </header>
+    <!-- MOBILE: menu button end -->
+
+    <div class="row">
+      <!-- ARTICLES: colomns start -->
+      <section role="main">
+        {# generate articles columns by domain #}
+        {{ ra.render_articles(articles, category, column_min, css_props, desc_size) }}
+      </section>
+      <!-- ARTICLES: colomns end -->
+
+      <!-- MOBILE ARTICLES: colomns start -->
+      <section role="main">
+        {# generate articles columns by domain #}
+        {{ ra_mob.render_articles_mobile(articles_mob, category, limit_mob, desc_size) }}
+      </section>
+      <!-- MOBILE ARTICLES: colomns end -->
+
+      <!-- MOBILE: menu navbar start -->
+      <section id="sidebar" role="complementary">
+        <nav id="sideMenu" role="navigation">
+          <ul id="sideMainNav" class="nav-bar">
+        {# generate articles columns by domain for mobile devices #}
+        {{ nav.render_navbar_categories(country, category, navbar, navbar_order, language) }}
+          </ul>
+        </nav>
+
+          <!-- feedback button start -->
+        <nav id="feedback" role="navigation">
+          <ul id="sideMainNav" class="nav-bar">
+            <li><a href="#" data-reveal-id="feedback1">{{ langset[language].feed_title }}</a></li>
+            {{ nav.render_navbar_languageswitch(langset, language, country, category) }}
+          </ul>
+        </nav>
+      </section>
+      <!-- MOBILE: menu navbar end -->
+    </div>
+  {#- case country is still WIP #}
+  {%- else %}
+    <div class="row">
+      <!-- ARTICLES: colomns start -->
+      <section role="main">
+        <div class="row">
+          <h1> </h1>
+        </div>
+        <div class="row">
+          <h1> </h1>
+        </div>
+        <div class="row">
+          <div class="nine columns centered">
+            <div class="panel radius">
+              <h3>{{ country|capitalize}}'s news feed will be available soon.</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div> 
+  {%- endif %}
+  </div>
+{%- endblock newsfeed %}

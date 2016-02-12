@@ -1,0 +1,36 @@
+{%- import 'render_navbar.html' as ra %}
+  <!-- NAVBAR: start -->
+  <div class="contain-to-grid fixed">
+  <nav class="top-bar">
+    <section>
+      <ul class="{{ langset[language].align }}">
+        {%- if langset[language].align == 'left' %}
+        {{ ra.render_navbar_countries(country, countries, category, navbar, language) }}
+        {{ ra.render_navbar_categories(country, category, navbar, navbar_order, language) }}
+        {%- elif langset[language].align == 'right' %}
+        {{ ra.render_navbar_categories(country, category, navbar, navbar_order, language, 'hide-for-small') }}
+        {{ ra.render_navbar_countries(country, countries, category, navbar, language) }}
+        {%- endif %}
+      </ul>
+
+      <ul class="{{ langset[language].alignfeed }}">
+        {%- if langset[language].align == 'right' %}
+        {{ ra.render_navbar_languageswitch(langset, language, country, category) }}
+        {%- elif langset[language].align == 'left' %}
+        <li class="divider"></li>
+        {%- endif %}
+
+      <!-- feedback button start -->
+        <li><a href="#" data-reveal-id="feedback1">{{ langset[language].feed_title }}</a></li>
+        <li class="divider"></li>
+      <!-- feedback button end -->
+
+        {%- if langset[language].align == 'left' %}
+        {{ ra.render_navbar_languageswitch(langset, language, country, category) }}
+        {%- endif %}
+      </ul>
+
+    </section>
+  </nav>
+  </div>
+  <!-- NAVBAR: end -->

@@ -1,0 +1,25 @@
+## Start Monit in the background (run as a daemon):
+#
+set daemon 30            # check services at 2-minute intervals
+
+# log to syslog
+#set logfile syslog facility log_daemon                       
+set logfile /var/log/monit.log
+
+set idfile /var/lib/monit/id
+
+set statefile /var/lib/monit/state
+
+set eventqueue
+  basedir /var/lib/monit/events # set the base directory where events will be stored
+  slots 100                     # optionally limit the queue size
+
+set mailserver localhost port 25
+
+set alert ignace@souksouk.net
+
+set httpd port 2812 and
+  use address localhost  # only accept connection from localhost
+  allow localhost        # allow localhost to connect to the server and
+
+include /etc/monit/conf.d/*

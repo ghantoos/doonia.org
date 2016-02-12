@@ -1,0 +1,125 @@
+# -*- coding: utf-8 -*-
+
+# mongodb settings
+MONGODB_SETTINGS = { 'DB' : 'doonia',}
+
+# debugging settings
+DEBUG = False
+DEBUG_TB_PANELS  = ('flask.ext.mongoengine.panels.MongoDebugPanel',)
+DEBUG_TB_INTERCEPT_REDIRECTS = False
+SECRET_KEY = '<ENTER_MONGO_PASSWORD>'
+MONGODB_DEBUG_TOOLBAR = False
+
+# csv file used by scrapy
+SCRAPY_CSV = '../spiders/config/start_urls'
+
+# number of articles per page per column
+PER_COLUMN_LIMIT        = 15
+MOBILE_PER_COLUMN_LIMIT = 45
+PER_COLUMN_MIN          = 3
+DESC_SIZE               = 300
+
+# gris size (should be the same as the one specified in
+# website/static/sass/_settings.scss
+GRID_SIZE = 27
+
+# feedback email setting
+EMAIL_FROM = 'feedback@souksouk.net'
+EMAIL_TO   = ['team@souksouk.net']
+
+# language definitions
+LANGUAGES_ORDER = ['en', 'ar']
+
+LANGUAGES = {
+'en' : { 'align'      : 'left',
+         'alignfeed'  : 'right',
+         'feed_title' : 'Send us feedback!',
+         'feed_phrase': 'Help us improve doonia.org.',
+         'name'       : 'English',
+         'button'     : 'Switch language',
+       },
+'ar' : { 'align'      : 'right',
+         'alignfeed'  : 'left',
+         'feed_title' : u'!أرسل لنا تعليقات',
+         'feed_phrase': u'ساعدنا على تحسين الدنيا',
+         'name'       : u'العربية',
+         'button'     : u'تبديل اللغة',
+       },
+'fr' : { 'align'      : 'left',
+         'alignfeed'  : 'right',
+         'feed_title' : u'Envoyez vos commentaires!',
+         'feed_phrase': u'Aidez nous à améliorier doonia.org.',
+         'name'       : u'Français',
+         'button'     : u'Choix de la langue',
+       },
+}
+
+# navbar elements
+NAVBAR_ORDER = ['latest',
+                'national',
+                'worldwide',
+                'business',
+                'sports']
+
+NAVBAR = {
+'latest'       : {'en' : 'Latest', 
+                   'fr' : u'Actualité',
+                   'ar' : u'جميع الأخبار', 
+                   'sub': [] },
+'national'     : {'en' : 'National',
+                   'fr' : u'National',
+                   'ar' : u'محلية',
+                   'sub': [] },
+'worldwide'    : {'en' : 'Worldwide',
+                   'fr' : u'Monde',
+                   'ar' : u'عربي و دولي',
+                   'sub': [] },
+#'regional'     : {'en' :'Regional',
+#                   'fr' : u'Régional',
+#                   'ar' : u'',
+#                   'sub': [] },
+'business'     : {'en' : 'Business',
+                   'fr' : u'Économie',
+                   'ar' : u'إقتصاد',
+                   'sub': [] },
+#'politics'     : {'en' : 'Politics',
+#                   'fr' : u'Politique',
+#                   'ar' : u'',
+#                   'sub': [] },
+'sports'       : {'en' : 'Sports',
+                   'fr' : u'Sport',
+                   'ar' : u'رياضة',
+                   'sub': [] },
+#'science'      : {'en' : 'Science',
+#                   'fr' : u'Science',
+#                   'ar' : u'',
+#                   'sub': ['environment', 'health', 'tech'] },
+#'culture'      : {'en' : 'Culture',
+#                   'fr' : u'Culture',
+#                   'ar' : u'',
+#                   'sub': ['cinema', 'opinion'] },
+#'entertainment': {'en' : 'Entertainment',
+#                   'fr' : u'Divertissements',
+#                   'ar' : u'',
+#                   'sub': ['television', 'fashion'] },
+}
+
+# list of all countries
+COUNTRY_LIST = {
+'lebanon'   : { 'status': 'published',
+                'en'    : 'Lebanon', 
+                'fr'    : u'Liban',
+                'ar'    : u'لبنان' },
+'tunisia'   : { 'status': '',
+                'en'    : 'Tunisia',
+                'fr'    : u'Tunisie', 
+                'ar'    : u'تونس' },
+'uae'       : { 'status':'',
+                'en'    : 'United Arab Emirates', 
+                'fr'    : u'Émirats Arabes Unis',
+                'ar'    : u'الإمارات العربية المتحدة' },
+'uk'        : { 'status':'published',
+                'en'    : 'United Kingdom',
+                'fr'    : u'Grande Bretagne',
+                'ar'    : u'UK' },
+}

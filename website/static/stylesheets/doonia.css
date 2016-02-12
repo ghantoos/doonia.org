@@ -1,0 +1,52 @@
+/* line 1, ../sass/doonia.scss */
+h5 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  line-height: 0.8;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+/* line 12, ../sass/doonia.scss */
+h6 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  line-height: 1.1;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+/* line 23, ../sass/doonia.scss */
+.lang-fr, .lang-en {
+  text-align: left;
+}
+
+/* line 27, ../sass/doonia.scss */
+.lang-ar {
+  text-align: right;
+}
+
+/* line 31, ../sass/doonia.scss */
+hr {
+  border: solid #dddddd;
+  border-width: 2px 0 0;
+  clear: both;
+  margin: 6px 0 6px;
+  height: 0;
+}
+
+/* line 39, ../sass/doonia.scss */
+a:hover {
+  color: #0f80a0;
+}
+
+/* line 43, ../sass/doonia.scss */
+a:focus {
+  color: #0f80a0;
+}

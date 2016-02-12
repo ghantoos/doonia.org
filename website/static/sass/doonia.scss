@@ -1,0 +1,45 @@
+h5 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  line-height: 0.8;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+h6 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  line-height: 1.1;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.lang-fr, .lang-en {
+  text-align: left;
+}
+
+.lang-ar {
+  text-align: right;
+}
+
+hr {
+  border: solid #dddddd;
+  border-width: 2px 0 0;
+  clear: both;
+  margin: 6px 0 6px;
+  height: 0;
+}
+
+a:hover {
+  color: #0f80a0;
+}
+
+a:focus {
+  color: #0f80a0;
+}

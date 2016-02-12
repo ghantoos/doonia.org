@@ -1,0 +1,9 @@
+check host doonia.org with address 127.0.0.1
+  start program = "/home/ghantoos/dev.doonia.org/doonia.sh start prod"
+  stop program = "/home/ghantoos/dev.doonia.org/doonia.sh stop prod"
+  if failed port 5000 protocol HTTP
+    request /status/
+    with timeout 10 seconds
+    then restart
+  if 5 restarts within 5 cycles
+    then timeout

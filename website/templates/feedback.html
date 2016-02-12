@@ -1,0 +1,24 @@
+<div id="feedback1" class="reveal-modal [expand, xlarge, large, medium, small]">
+  {#- ugly hack to make it appear nicely #}
+  {%- if langset[language].align == 'right' %}
+  <h2 class="{{ langset[language].align }}">{{ langset[language].feed_title }}</h2>
+  <br><br><br><br>
+  <p class="lead {{ langset[language].align }}">{{ langset[language].feed_phrase }}</p>
+  <br><br>
+  <a class="close-reveal-modal">&#215;</a>
+  {%- else %}
+  <h2 >{{ langset[language].feed_title }}</h2>
+  <p class="lead">{{ langset[language].feed_phrase }}</p>
+  <a class="close-reveal-modal">&#215;</a>
+  {%- endif %}
+
+<form id="feedback" method="POST" action="/feedback/" name="feedback">
+  <label>Suggestion</label>
+  <input type="text" name="subject" placeholder="Subject..." />
+  <label>Email</label>
+  <input type="text" name="email" class="twelve" placeholder="Email..." />
+  <textarea name="message" placeholder="Message..."></textarea>
+  <input class="round small button" type="submit" value="submit" id="submitter">
+</form>
+
+</div>
