@@ -3,6 +3,8 @@
 This is the source behind doonia.org website. This website is intended to
 aggregate RSS feeds and nicely print them using Zurb Foundation.
 
+I have worked on this project in collaboration with Alban Thiébaut (@albeu) and Tarek Abi Aad (@tareh).
+
 The architecture is:
 - Mongodb database
 - Python Flask web framework
